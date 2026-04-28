@@ -1,0 +1,27 @@
+:root {
+    --bg-color: #fdf6f0;
+    --text-color: #333;
+    --accent: #d4a373;
+}
+
+body.dark-mode {
+    --bg-color: #2b2d42;
+    --text-color: #edf2f4;
+    --accent: #ef233c;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: 0.3s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hidden { display: none; }
+
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    gap: 10px;
+}
