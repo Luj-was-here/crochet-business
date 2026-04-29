@@ -3,43 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luj Does Crochet</title>
+    <title>Lujain's Cozy Corner</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Sacramento&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1 class="brand-name">Luj Does Crochet</h1>
-        <button id="theme-toggle" class="soft-btn">Toggle Mood</button>
+        <h1 class="brand-name">Lujain's Cozy Corner</h1>
+        <div class="toggle-container">
+            <input type="checkbox" id="theme-toggle" class="checkbox">
+            <label for="theme-toggle" class="label">
+                <span class="moon">🌙</span>
+                <div class="ball"></div>
+            </label>
+        </div>
     </header>
 
     <main>
         <section class="intro">
             <h2>Handmade with Love</h2>
-            <p>Welcome to my cozy corner of the internet! 🧶</p>
+            <p>Welcome to my little sanctuary of stitches! Here, every loop tells a story and every piece is crafted to bring a bit of warmth and whimsy into your world. 🧶✨</p>
         </section>
 
         <section class="product-grid">
             <div class="product-card">
-                <img src="https://via.placeholder.com/200" alt="Crochet Item 1">
+                <img src="https://via.placeholder.com/200" alt="Item">
                 <h3>Strawberry Bucket Hat</h3>
                 <p class="price">$25.00</p>
-                <div class="description-container">
-                    <p class="short-desc">A trendy summer essential...</p>
-                    <span id="more-text-1" class="hidden-text">Hand-stitched using 100% breathable cotton. Perfect for sunny picnics and festivals!</span>
-                    <button class="read-more-link" onclick="toggleReadMore(1, this)">Read more</button>
-                </div>
+                <p class="short-desc">A trendy summer essential...</p>
+                <span id="text1" class="hidden-text">Hand-stitched using 100% breathable cotton. Perfect for sunny picnics!</span>
+                <button class="read-more-link" onclick="toggleText('text1', this)">Read more</button>
             </div>
 
             <div class="product-card">
-                <img src="https://via.placeholder.com/200" alt="Crochet Item 2">
-                <h3>Cozy Velvet Cardigan</h3>
+                <img src="https://via.placeholder.com/200" alt="Item">
+                <h3>Velvet Cardigan</h3>
                 <p class="price">$60.00</p>
-                <div class="description-container">
-                    <p class="short-desc">The softest hug you'll ever wear...</p>
-                    <span id="more-text-2" class="hidden-text">Made with premium chenille yarn. Features oversized buttons and a relaxed fit for chilly evenings.</span>
-                    <button class="read-more-link" onclick="toggleReadMore(2, this)">Read more</button>
-                </div>
+                <p class="short-desc">The softest hug ever...</p>
+                <span id="text2" class="hidden-text">Made with premium chenille yarn. Features oversized buttons and a relaxed fit.</span>
+                <button class="read-more-link" onclick="toggleText('text2', this)">Read more</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200" alt="Item">
+                <h3>Mini Jellyfish Plush</h3>
+                <p class="price">$15.00</p>
+                <p class="short-desc">A tiny ocean friend...</p>
+                <span id="text3" class="hidden-text">Super soft and fits in the palm of your hand. Great for desk decor or bag charms!</span>
+                <button class="read-more-link" onclick="toggleText('text3', this)">Read more</button>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200" alt="Item">
+                <h3>Daisy Tote Bag</h3>
+                <p class="price">$35.00</p>
+                <p class="short-desc">Carry your essentials in style...</p>
+                <span id="text4" class="hidden-text">Reinforced straps and a cute floral pattern. Sturdy enough for books or groceries.</span>
+                <button class="read-more-link" onclick="toggleText('text4', this)">Read more</button>
             </div>
         </section>
 
@@ -48,15 +68,12 @@
             <form id="contactForm">
                 <input type="text" id="userName" placeholder="Your Sweet Name" required>
                 <input type="email" id="userEmail" placeholder="Your Email" required>
-                <textarea id="userMessage" placeholder="What can I crochet for you?"></textarea>
-                <button type="submit" class="submit-btn">Send to Luj</button>
+                <textarea id="userMessage" placeholder="Describe your dream crochet piece..."></textarea>
+                <button type="submit" class="submit-btn">Send to Lujain</button>
             </form>
         </section>
 
-        <section id="admin">
-            <h3>Customer Requests (Database)</h3>
-            <ul id="db-list"></ul>
-        </section>
+        <ul id="db-list"></ul>
     </main>
 
     <script src="script.js"></script>
