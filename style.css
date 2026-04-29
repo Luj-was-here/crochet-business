@@ -1,6 +1,97 @@
-body { background: #fff; color: #000; transition: 0.3s; padding: 20px; }
-.dark-mode { background: #333; color: #fff; }
-#more-text { margin-left: 5px; color: #666; }
-.dark-mode #more-text { color: #ccc; }
-input { display: block; margin-bottom: 10px; }
-#admin { margin-top: 40px; border-top: 1px solid #ccc; }
+:root {
+    --main-pink: #fce4ec; /* Baby Pink */
+    --dark-pink: #f06292; /* Accent Pink */
+    --text-color: #5d4037; /* Warm Brown (compliments pink better than black) */
+    --card-bg: #ffffff;
+}
+
+body {
+    background-color: var(--main-pink);
+    color: var(--text-color);
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 20px;
+    transition: all 0.3s ease;
+    line-height: 1.6;
+}
+
+.brand-name {
+    font-family: 'Sacramento', cursive;
+    font-size: 4rem;
+    text-align: center;
+    color: var(--dark-pink);
+    margin-bottom: 10px;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+    --main-pink: #2d1b24;
+    --text-color: #fce4ec;
+    --card-bg: #3d2b34;
+    --dark-pink: #ff80ab;
+}
+
+/* Product Cards */
+.product-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+
+.product-card {
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    width: 250px;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+/* THE BUTTON LINK YOU ASKED FOR */
+.read-more-link {
+    background: none;
+    border: none;
+    color: var(--dark-pink);
+    text-decoration: underline;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 0;
+    font-weight: 600;
+}
+
+.hidden-text { display: none; }
+
+/* Form Styling */
+#contactForm {
+    max-width: 400px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid var(--main-pink);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.submit-btn {
+    background: var(--dark-pink);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    width: 100%;
+    cursor: pointer;
+}
