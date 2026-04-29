@@ -2,34 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Handmade Crochet - Business</title>
+    <title>Crochet Business</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">Crochet Gems</div>
-            <button id="theme-toggle">Toggle Dark Mode</button>
-        </nav>
+        <button id="theme-toggle">Toggle Dark Mode</button>
     </header>
 
     <main>
-        <section id="about">
-            <h1>Our Story</h1>
-            <p>Welcome to our crochet studio. We specialize in handmade, sustainable fashion...</p>
-            <span id="more-text" class="hidden">Our journey began with a single hook and a ball of yarn. Today, we create intricate patterns that bring warmth to your home.</span>
+        <h1>Handmade Crochet Shop</h1>
+        <p>We create beautiful, hand-hooked items. 
+            <span id="more-text" style="display:none;"> Every piece is made with sustainable materials and supports local artisans in our community.</span>
             <button id="read-more-btn">Read More</button>
-        </section>
+        </p>
 
         <section id="contact">
-            <h2>Custom Orders & Inquiries</h2>
+            <h2>Contact Us</h2>
             <form id="contactForm">
-                <input type="text" id="name" placeholder="Your Name" required>
-                <input type="email" id="email" placeholder="Your Email" required>
-                <textarea id="message" placeholder="Describe your custom piece..."></textarea>
-                <button type="submit">Send to Database</button>
+                <input type="text" id="userName" placeholder="Name" required>
+                <input type="email" id="userEmail" placeholder="Email" required>
+                <button type="submit">Submit to Database</button>
             </form>
+        </section>
+
+        <section id="admin">
+            <h3>Stored Database Records</h3>
+            <ul id="db-list"></ul>
         </section>
     </main>
 
