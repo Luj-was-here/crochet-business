@@ -1,27 +1,6 @@
-:root {
-    --bg-color: #fdf6f0;
-    --text-color: #333;
-    --accent: #d4a373;
-}
-
-body.dark-mode {
-    --bg-color: #2b2d42;
-    --text-color: #edf2f4;
-    --accent: #ef233c;
-}
-
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: 0.3s;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.hidden { display: none; }
-
-#contactForm {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    gap: 10px;
-}
+body { background: #fff; color: #000; transition: 0.3s; padding: 20px; }
+.dark-mode { background: #333; color: #fff; }
+#more-text { margin-left: 5px; color: #666; }
+.dark-mode #more-text { color: #ccc; }
+input { display: block; margin-bottom: 10px; }
+#admin { margin-top: 40px; border-top: 1px solid #ccc; }
