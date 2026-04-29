@@ -2,32 +2,59 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Crochet Business</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luj Does Crochet</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Sacramento&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <button id="theme-toggle">Toggle Dark Mode</button>
+        <h1 class="brand-name">Luj Does Crochet</h1>
+        <button id="theme-toggle" class="soft-btn">Toggle Mood</button>
     </header>
 
     <main>
-        <h1>Handmade Crochet Shop</h1>
-        <p>We create beautiful, hand-hooked items. 
-            <span id="more-text" style="display:none;"> Every piece is made with sustainable materials and supports local artisans in our community.</span>
-            <button id="read-more-btn">Read More</button>
-        </p>
+        <section class="intro">
+            <h2>Handmade with Love</h2>
+            <p>Welcome to my cozy corner of the internet! 🧶</p>
+        </section>
+
+        <section class="product-grid">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200" alt="Crochet Item 1">
+                <h3>Strawberry Bucket Hat</h3>
+                <p class="price">$25.00</p>
+                <div class="description-container">
+                    <p class="short-desc">A trendy summer essential...</p>
+                    <span id="more-text-1" class="hidden-text">Hand-stitched using 100% breathable cotton. Perfect for sunny picnics and festivals!</span>
+                    <button class="read-more-link" onclick="toggleReadMore(1, this)">Read more</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://via.placeholder.com/200" alt="Crochet Item 2">
+                <h3>Cozy Velvet Cardigan</h3>
+                <p class="price">$60.00</p>
+                <div class="description-container">
+                    <p class="short-desc">The softest hug you'll ever wear...</p>
+                    <span id="more-text-2" class="hidden-text">Made with premium chenille yarn. Features oversized buttons and a relaxed fit for chilly evenings.</span>
+                    <button class="read-more-link" onclick="toggleReadMore(2, this)">Read more</button>
+                </div>
+            </div>
+        </section>
 
         <section id="contact">
-            <h2>Contact Us</h2>
+            <h2>Order a Custom Piece</h2>
             <form id="contactForm">
-                <input type="text" id="userName" placeholder="Name" required>
-                <input type="email" id="userEmail" placeholder="Email" required>
-                <button type="submit">Submit to Database</button>
+                <input type="text" id="userName" placeholder="Your Sweet Name" required>
+                <input type="email" id="userEmail" placeholder="Your Email" required>
+                <textarea id="userMessage" placeholder="What can I crochet for you?"></textarea>
+                <button type="submit" class="submit-btn">Send to Luj</button>
             </form>
         </section>
 
         <section id="admin">
-            <h3>Stored Database Records</h3>
+            <h3>Customer Requests (Database)</h3>
             <ul id="db-list"></ul>
         </section>
     </main>
