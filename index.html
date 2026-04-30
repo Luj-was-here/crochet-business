@@ -11,7 +11,6 @@
     <header>
         <h1 class="brand-name">Lujain's Cozy Corner</h1>
         <div class="toggle-wrapper">
-            <!-- The checkbox is now completely hidden, the label acts as the switch -->
             <input type="checkbox" id="theme-toggle">
             <label for="theme-toggle" class="moon-switch">
                 <span class="moon-icon">🌙</span>
@@ -26,39 +25,43 @@
         </section>
 
         <section class="product-grid">
+            <!-- Amigurumi 1 -->
             <div class="product-card">
-                <img src="https://via.placeholder.com/200" alt="Item">
-                <h3>Strawberry Bucket Hat</h3>
-                <p class="price">$25.00</p>
-                <p class="short-desc">A trendy summer essential...</p>
-                <span id="text1" class="hidden-text">Hand-stitched using 100% breathable cotton. Perfect for sunny picnics and festivals.</span>
+                <img src="bee.jpg" alt="Amigurumi Bee">
+                <h3>Bumble Bee Buddy</h3>
+                <p class="price">$15.00</p>
+                <p class="short-desc">A fuzzy little friend...</p>
+                <span id="text1" class="hidden-text">This chubby bee is made with super soft velvet yarn. It's the perfect size to sit on your desk or join your plushie collection.</span>
                 <button class="read-more-link" onclick="toggleText('text1', this)">Read more</button>
             </div>
 
+            <!-- Amigurumi 2 -->
             <div class="product-card">
-                <img src="https://via.placeholder.com/200" alt="Item">
-                <h3>Velvet Cardigan</h3>
-                <p class="price">$60.00</p>
-                <p class="short-desc">The softest hug ever...</p>
-                <span id="text2" class="hidden-text">Made with premium chenille yarn. Features oversized buttons and a relaxed fit for chilly evenings.</span>
+                <img src="dino.jpg" alt="Amigurumi Dinosaur">
+                <h3>Tiny Triceratops</h3>
+                <p class="price">$20.00</p>
+                <p class="short-desc">Rawr means stay cozy...</p>
+                <span id="text2" class="hidden-text">A hand-crocheted dinosaur made with sturdy cotton yarn. It features cute little horns and a friendly face.</span>
                 <button class="read-more-link" onclick="toggleText('text2', this)">Read more</button>
             </div>
 
+            <!-- Amigurumi 3 -->
             <div class="product-card">
-                <img src="https://via.placeholder.com/200" alt="Item">
-                <h3>Mini Jellyfish Plush</h3>
-                <p class="price">$15.00</p>
-                <p class="short-desc">A tiny ocean friend...</p>
-                <span id="text3" class="hidden-text">Super soft and fits in the palm of your hand. Great for desk decor or bag charms.</span>
+                <img src="cat.jpg" alt="Amigurumi Cat">
+                <h3>Loaf Cat Plush</h3>
+                <p class="price">$18.00</p>
+                <p class="short-desc">For the cat lovers...</p>
+                <span id="text3" class="hidden-text">A squishy cat in "loaf" form. It is approximately 4 inches long and made with premium hypoallergenic stuffing.</span>
                 <button class="read-more-link" onclick="toggleText('text3', this)">Read more</button>
             </div>
 
+            <!-- Amigurumi 4 -->
             <div class="product-card">
-                <img src="https://via.placeholder.com/200" alt="Item">
-                <h3>Daisy Tote Bag</h3>
-                <p class="price">$35.00</p>
-                <p class="short-desc">Carry your essentials in style...</p>
-                <span id="text4" class="hidden-text">Reinforced straps and a cute floral pattern. Sturdy enough for books or groceries.</span>
+                <img src="frog.jpg" alt="Amigurumi Frog">
+                <h3>Froggy with a Hat</h3>
+                <p class="price">$22.00</p>
+                <p class="short-desc">He has a tiny mushroom hat...</p>
+                <span id="text4" class="hidden-text">Our best-selling froggy! He wears a tiny red mushroom hat that is securely stitched on. Perfect for cottagecore vibes.</span>
                 <button class="read-more-link" onclick="toggleText('text4', this)">Read more</button>
             </div>
         </section>
@@ -69,7 +72,7 @@
                 <input type="text" id="userName" placeholder="Your Name" required>
                 <input type="email" id="userEmail" placeholder="Your Email" required>
                 <textarea id="userMessage" placeholder="Describe your dream crochet piece..."></textarea>
-                <button type="submit" class="submit-btn">Send to Lujain</button>
+                <button type="submit" class="submit-btn">Send</button>
             </form>
         </section>
 
