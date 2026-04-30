@@ -6,6 +6,10 @@
     <title>Lujain's Cozy Corner</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Sacramento&display=swap" rel="stylesheet">
+    
+    <!-- Firebase SDKs (Required for your Cloud Database to work) -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
 </head>
 <body>
     <header>
@@ -100,8 +104,18 @@
             </form>
         </section>
 
-        <ul id="db-list"></ul>
+        <!-- Hidden Admin Dashboard Section -->
+        <section id="admin-panel" style="display: none; padding: 20px; background: #fff5f8; border-radius: 20px; margin-top: 50px; border: 2px dashed var(--dark-pink);">
+            <h3>Admin Dashboard - Cloud Database</h3>
+            <ul id="db-list" style="list-style: none; padding: 0;"></ul>
+            <button onclick="hideAdmin()" class="read-more-link">Close Dashboard</button>
+        </section>
     </main>
+
+    <!-- Secret Trigger in Footer -->
+    <footer>
+        <p>&copy; <span onclick="showAdmin()" style="cursor: pointer;">2026</span> Lujain's Cozy Corner</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
