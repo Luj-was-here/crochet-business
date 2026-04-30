@@ -25,11 +25,12 @@
         </section>
 
         <section class="product-grid">
-            <!-- 1. Flip Octopus -->
-            <div class="product-card octopus-card">
-                <div class="image-container">
-                    <img src="OctopusSide1.jpg" alt="Happy Octopus" class="img-front">
-                    <img src="OctopusSide2.jpg" alt="Mad Octopus" class="img-back">
+           <!-- 1. Flip Octopus with Arrows -->
+            <div class="product-card">
+                <div class="slider-container">
+                    <button class="slider-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+                    <img src="OctopusSide1.jpg" alt="Happy Octopus" id="octo-img-slider">
+                    <button class="slider-btn next" onclick="changeSlide(1)">&#10095;</button>
                 </div>
                 <h3>Mood Flip Octopus</h3>
                 <p class="price">₺300</p>
