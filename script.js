@@ -1,16 +1,30 @@
-// --- 1. MOOD FLIP OCTOPUS SLIDER ---
-// This uses a toggle state to switch specifically between your two octopus photos
+// --- 1. FIREBASE INITIALIZATION ---
+const firebaseConfig = {
+  apiKey: "AIzaSyAWhI_E5vvVfXHRExjyArOOK14bvItGpBw",
+  authDomain: "lujaincrochet-8a8c8.firebaseapp.com",
+  databaseURL: "https://lujaincrochet-8a8c8-default-rtdb.firebaseio.com",
+  projectId: "lujaincrochet-8a8c8",
+  storageBucket: "lujaincrochet-8a8c8.firebasestorage.app",
+  messagingSenderId: "486052458375",
+  appId: "1:486052458375:web:96cc3ad2616b78707aad22",
+  measurementId: "G-7B2HYLZ91W"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+
+// --- 2. MOOD FLIP OCTOPUS SLIDER ---
 let currentOctoImage = 1;
 
 function changeSlide(direction) {
     const imgElement = document.getElementById('octo-img-slider');
     
     if (!imgElement) {
-        console.error("The ID 'octo-img-slider' was not found in your HTML.");
+        console.error("The ID 'octo-img-slider' was not found.");
         return;
     }
 
-    // Forced flip between your specific filenames
     if (currentOctoImage === 1) {
         currentOctoImage = 2;
         imgElement.src = "OctopusSide2.jpg";
@@ -20,7 +34,7 @@ function changeSlide(direction) {
     }
 }
 
-// --- 2. DARK MODE (MOON TOGGLE) ---
+// --- 3. DARK MODE (MOON TOGGLE) ---
 const toggle = document.getElementById('theme-toggle');
 if (toggle) {
     toggle.addEventListener('change', () => {
@@ -28,7 +42,7 @@ if (toggle) {
     });
 }
 
-// --- 3. PRODUCT DESCRIPTION TOGGLE (READ MORE) ---
+// --- 4. PRODUCT DESCRIPTION TOGGLE (READ MORE) ---
 function toggleText(id, btn) {
     const text = document.getElementById(id);
     if (!text) return;
@@ -42,37 +56,52 @@ function toggleText(id, btn) {
     }
 }
 
-// --- 4. LOCAL STORAGE DATABASE (CONTACT FORM) ---
+// --- 5. REAL DATABASE LOGIC (CLOUD STORAGE) ---
 const contactForm = document.getElementById('contactForm');
 const dbList = document.getElementById('db-list');
 
-// Function to display saved entries from the browser database
+// Function to pull data from Firebase Cloud
 function showData() {
     if (!dbList) return;
-    const data = JSON.parse(localStorage.getItem('crochetDB')) || [];
-    // Displays entries as a list for your project report evidence
-    dbList.innerHTML = data.map(item => `<li>Entry: ${item.name} (${item.email})</li>`).join('');
+
+    database.ref('orders').on('value', (snapshot) => {
+        const data = snapshot.val();
+        dbList.innerHTML = ""; // Clear list
+        
+        if (data) {
+            for (let id in data) {
+                let item = data[id];
+                // Displaying cloud data on the page
+                dbList.innerHTML += `<li>Entry: ${item.name} (${item.email}) - ${item.time}</li>`;
+            }
+        }
+    });
 }
 
-// Logic to save data when the user clicks "Send"
+// Logic to save data to Cloud when "Send" is clicked
 if (contactForm) {
     contactForm.onsubmit = (e) => {
         e.preventDefault();
+        
         const newEntry = {
             name: document.getElementById('userName').value,
             email: document.getElementById('userEmail').value,
+            message: document.getElementById('userMessage').value || "No message",
             time: new Date().toLocaleString()
         };
 
-        let db = JSON.parse(localStorage.getItem('crochetDB')) || [];
-        db.push(newEntry);
-        localStorage.setItem('crochetDB', JSON.stringify(db));
-        
-        alert("Sent! I'll get back to you soon.");
-        showData();
-        contactForm.reset();
+        // Push to Firebase Realtime Database
+        database.ref('orders').push(newEntry)
+            .then(() => {
+                alert("Success! Your order is recorded in the cloud database.");
+                contactForm.reset();
+            })
+            .catch((error) => {
+                console.error("Cloud Error: ", error);
+                alert("Database error. Check console.");
+            });
     };
 }
 
-// Ensure database entries appear as soon as the page loads
+// Load cloud data on startup
 document.addEventListener('DOMContentLoaded', showData);
