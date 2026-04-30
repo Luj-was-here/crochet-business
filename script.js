@@ -1,3 +1,18 @@
+let currentOctoImage = 1;
+const octoImages = ["OctopusSide1.jpg", "OctopusSide2.jpg"];
+
+function changeSlide(direction) {
+    const imgElement = document.getElementById('octo-img-slider');
+    
+    currentOctoImage += direction;
+
+    // Loop logic
+    if (currentOctoImage > octoImages.length) { currentOctoImage = 1; }
+    if (currentOctoImage < 1) { currentOctoImage = octoImages.length; }
+
+    // Change the source
+    imgElement.src = octoImages[currentOctoImage - 1];
+}
 // 1. MOON TOGGLE
 const toggle = document.getElementById('theme-toggle');
 toggle.addEventListener('change', () => {
