@@ -4,25 +4,19 @@ toggle.addEventListener('change', () => {
     document.body.classList.toggle('dark-mode');
 });
 
-// 2. READ MORE & OCTOPUS FLIP
+// 2. GENERAL READ MORE LOGIC
 function toggleText(id, btn) {
     const text = document.getElementById(id);
-    const octoImg = document.getElementById('octo-img');
-
     if (text.style.display === "none" || text.style.display === "") {
         text.style.display = "inline";
         btn.textContent = "Read less";
-        // If they click the octopus, show the mad side!
-        if(id === 'text1') octoImg.src = 'OctopusSide2.jpg';
     } else {
         text.style.display = "none";
         btn.textContent = "Read more";
-        // Flip back to happy
-        if(id === 'text1') octoImg.src = 'OctopusSide1.jpg';
     }
 }
 
-// 3. DATABASE
+// 3. DATABASE (LOCAL STORAGE)
 const contactForm = document.getElementById('contactForm');
 const dbList = document.getElementById('db-list');
 
