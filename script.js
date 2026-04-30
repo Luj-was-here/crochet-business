@@ -56,29 +56,9 @@ function toggleText(id, btn) {
     }
 }
 
-// --- 5. REAL DATABASE LOGIC (CLOUD STORAGE) ---
+// --- 5. REAL DATABASE LOGIC (SAVING DATA) ---
 const contactForm = document.getElementById('contactForm');
-const dbList = document.getElementById('db-list');
 
-// Function to pull data from Firebase Cloud
-function showData() {
-    if (!dbList) return;
-
-    database.ref('orders').on('value', (snapshot) => {
-        const data = snapshot.val();
-        dbList.innerHTML = ""; // Clear list
-        
-        if (data) {
-            for (let id in data) {
-                let item = data[id];
-                // Displaying cloud data on the page
-                dbList.innerHTML += `<li>Entry: ${item.name} (${item.email}) - ${item.time}</li>`;
-            }
-        }
-    });
-}
-
-// Logic to save data to Cloud when "Send" is clicked
 if (contactForm) {
     contactForm.onsubmit = (e) => {
         e.preventDefault();
@@ -103,5 +83,49 @@ if (contactForm) {
     };
 }
 
-// Load cloud data on startup
-document.addEventListener('DOMContentLoaded', showData);
+// --- 6. ADMIN ACCESS & CLOUD FETCH LOGIC ---
+function showAdmin() {
+    let password = prompt("Enter Admin Password:");
+    
+    if (password === "admin123") {
+        document.getElementById('admin-panel').style.display = "block";
+        fetchCloudData(); // Run the database fetch ONLY now
+        window.scrollTo(0, document.body.scrollHeight);
+    } else {
+        alert("Incorrect password.");
+    }
+}
+
+function hideAdmin() {
+    document.getElementById('admin-panel').style.display = "none";
+}
+
+function fetchCloudData() {
+    const dbList = document.getElementById('db-list');
+    if (!dbList) return;
+
+    // Connect to your Realtime Database "orders" path
+    database.ref('orders').on('value', (snapshot) => {
+        const data = snapshot.val();
+        dbList.innerHTML = ""; 
+        
+        if (data) {
+            for (let id in data) {
+                let item = data[id];
+                // Creates a clean list for the admin to read
+                dbList.innerHTML += `<li style="text-align: left; margin-bottom: 10px; padding: 10px; border-bottom: 1px solid #ddd;">
+                    <strong>${item.name}</strong> (${item.email}) <br> 
+                    <em>Request:</em> ${item.message} <br>
+                    <small>${item.time}</small>
+                </li>`;
+            }
+        } else {
+            dbList.innerHTML = "<li>No orders in the cloud yet.</li>";
+        }
+    });
+}
+
+// Startup logs
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("Website ready. Admin panel is locked.");
+});
